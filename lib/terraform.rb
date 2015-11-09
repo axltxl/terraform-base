@@ -27,7 +27,9 @@ module Terraform
     # raw execution of terraform
     def self._exec (args='')
         # construct that terraform command
-        cmd = "#{$tf_bin} #{args} #{TF_SRC_DIR}"
+        tf_state_file="#{TF_ENV_DIR}/#{TF_ENV}.tfstate" # state file
+        tf_var_file="#{TF_ENV_DIR}/vars.tfvars" # variables file
+        cmd = "#{$tf_bin} #{args} -state=#{tf_state_file} -var-file=#{tf_var_file} #{TF_SRC_DIR}"
 
         # print the command before doing anything
         puts cmd
