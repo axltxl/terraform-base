@@ -56,5 +56,4 @@ module Terraform
         _exec('destroy')
     end
 end
-end
 
