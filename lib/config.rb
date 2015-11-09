@@ -14,7 +14,8 @@ CONFIG = File.join(File.dirname(__FILE__), "../config.rb")
 TERRAFORM_ENV = Git::BRANCH
 
 # Defaults for terraform
-$terraform_bin = "terraform"
+$terraform_vars = {}
+$terraform_bin  = "terraform"
 
 # Import configuration file (if any)
 if File.exist?(CONFIG)
