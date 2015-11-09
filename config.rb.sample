@@ -15,8 +15,8 @@
 
 # Path to terraform binary
 # Default: terraform
-#$terraform_bin = "terraform
+#$tf_bin = "terraform
 
 # Arbitrary variables to inject to terraform
 # Default: {}
-#$terraform_vars = {}
+#$tf_vars = {}

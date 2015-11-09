@@ -12,12 +12,16 @@ module Terraform
     # Inject dynamic variables into Terraform
     def self._setenv(*args)
         # set user environment variables
-        $terraform_vars.each do |key, value|
+        $tf_vars.each do |key, value|
             ENV["TF_VAR_#{key}"] = value
         end
 
-        # Environment as terraform variable
-        ENV['TF_VAR_environment'] = TERRAFORM_ENV
+        # Environment as tf variable
+        ENV['TF_VAR_environment'] = TF_ENV
+
+        # Terraform wants logs
+        ENV['TF_LOG'] = 'TRACE'
+        ENV['TF_LOG_PATH'] = File.absolute_path(File.join(File.dirname(__FILE__), "../tf.log"))
     end
 
     # raw execution of terraform
