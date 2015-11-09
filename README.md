@@ -2,6 +2,8 @@
 
 An environment-aware Terraform project skeleton that is dynamic, painless and fun to use.
 
+[further documentation on its way]
+
 ##Requirements
 * [Terraform](http://terraform.io)
 * [Ruby](http://rubylang.org) >= 2.2
