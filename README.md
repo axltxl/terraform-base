@@ -4,8 +4,8 @@ An environment-aware Terraform project skeleton that is dynamic, painless and fu
 
 ##Requirements
 * [Terraform](http://terraform.io)
-* [Ruby]() >= 2.2
-* [Rake]()
+* [Ruby](http://rubylang.org) >= 2.2
+* [Rake](http://github.com/ruby/rake)
 
 ##Copyright and Licensing
 Copyright (c) 2015 Alejandro Ricoveri

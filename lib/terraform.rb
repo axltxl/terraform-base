@@ -4,8 +4,11 @@
 # Configuration library
 require File.join(File.dirname(__FILE__), "config.rb")
 
+#######################
 # Terraform as a module
+#######################
 module Terraform
+
     # Inject dynamic variables into Terraform
     def self._setenv(*args)
         # set user environment variables
@@ -16,6 +19,7 @@ module Terraform
         # Environment as terraform variable
         ENV['TF_VAR_environment'] = TERRAFORM_ENV
     end
+
     # raw execution of terraform
     def self._exec (args='')
         # construct that terraform command

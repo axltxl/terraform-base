@@ -1,3 +1,3 @@
 #########################################
-# Variables for terraform must go in here
+# Terraform variables  must go in here
 #########################################
