@@ -5,16 +5,20 @@
 require File.join(File.dirname(__FILE__), "config.rb")
 
 module Terraform
-    def self.exec (args)
-        %{ $terraform_bin }
+    def self._exec (args='')
+        cmd = "#{$terraform_bin} #{args}"
+        puts cmd
+        if not system(cmd)
+            raise "Error executing Terraform!: #{$?}"
+        end
     end
 
     def self.apply ()
-        exec()
+        _exec('apply')
     end
 
     def self.plan()
-        exec()
+        _exec('plan')
     end
 end
 
