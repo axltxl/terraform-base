@@ -50,5 +50,11 @@ module Terraform
     def self.plan()
         _exec('plan')
     end
+
+    # terraform destroy
+    def self.destroy
+        _exec('destroy')
+    end
+end
 end
 
