@@ -52,7 +52,7 @@ module Terraform
     end
 
     # terraform destroy
-    def self.destroy
+    def self.destroy()
         _exec('destroy')
     end
 end
