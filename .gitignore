@@ -1,4 +1,4 @@
 *.log
-*.tf*
+*.tfstate*
 config.rb
 !lib/config.rb
