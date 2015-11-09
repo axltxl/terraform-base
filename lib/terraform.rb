@@ -23,7 +23,7 @@ module Terraform
     # raw execution of terraform
     def self._exec (args='')
         # construct that terraform command
-        cmd = "#{$terraform_bin} #{args}"
+        cmd = "#{$tf_bin} #{args} #{TF_SRC_DIR}"
 
         # print the command before doing anything
         puts cmd

@@ -11,7 +11,8 @@ CONFIG = File.join(File.dirname(__FILE__), "../config.rb")
 ###################################
 ## git branch as an terraform environment
 ####################################
-TERRAFORM_ENV = Git::BRANCH
+TF_ENV = Git::BRANCH # git branch as the environment
+TF_SRC_DIR= File.absolute_path(File.join(File.dirname(__FILE__), "../src"))
 
 # Defaults for terraform
 $terraform_vars = {}
