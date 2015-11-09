@@ -21,3 +21,8 @@ desc 'run terraform apply on project'
 task 'apply' do
     Terraform.apply()
 end
+
+desc 'run terraform destroy on project'
+task 'destroy ' do
+    Terraform.destroy ()
+end
