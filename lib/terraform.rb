@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # Configuration library
-require File.join(File.dirname(__FILE__), "lib/config.rb")
+require File.join(File.dirname(__FILE__), "config.rb")
 
 module Terraform
     def self.exec (args)
