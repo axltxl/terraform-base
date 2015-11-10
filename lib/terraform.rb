@@ -25,35 +25,46 @@ module Terraform
     end
 
     # raw execution of terraform
-    def self._exec (args='')
+    def self._exec (cmd='', opts='')
         # construct that terraform command
-        tf_state_file="#{TF_ENV_DIR}/#{TF_ENV}.tfstate" # state file
-        tf_var_file="#{TF_ENV_DIR}/vars.tfvars" # variables file
-        cmd = "#{$tf_bin} #{args} -state=#{tf_state_file} -var-file=#{tf_var_file} #{TF_SRC_DIR}"
+        tf_cmd = "#{$tf_bin} #{cmd} #{opts} #{TF_SRC_DIR}"
 
         # print the command before doing anything
-        puts cmd
+        puts tf_cmd
         _setenv() # set those envs already!
 
         # execute the thing!
-        if not system(cmd)
+        if not system(tf_cmd)
             raise "Error executing Terraform!: #{$?}"
         end
     end
 
+    def self._get_state_file()
+       "#{TF_ENV_DIR}/#{TF_ENV}.tfstate" # state file
+    end
+
+    def self._get_var_file()
+        "#{TF_ENV_DIR}/vars.tfvars" # variables file
+    end
+
+    # terraform get
+    def self.get()
+        _exec('get', '-update=true')
+    end
+
     # terraform apply
     def self.apply ()
-        _exec('apply')
+        _exec('apply', "-state=#{_get_state_file} -var-file=#{_get_var_file}")
     end
 
     # terraform plan
     def self.plan()
-        _exec('plan')
+        _exec('plan', "-state=#{_get_state_file} -var-file=#{_get_var_file}")
     end
 
     # terraform destroy
     def self.destroy()
-        _exec('destroy')
+        _exec('destroy', "-state=#{_get_state_file} -var-file=#{_get_var_file}")
     end
 end
 

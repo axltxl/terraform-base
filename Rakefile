@@ -12,13 +12,18 @@ require File.join(File.dirname(__FILE__), "lib/terraform.rb")
 # The actual tasks
 ##################
 
+desc 'run terraform get on project'
+task 'get' do
+    Terraform.get()
+end
+
 desc 'run terraform plan on project'
-task 'plan' do
+task 'plan' => :get do
     Terraform.plan()
 end
 
 desc 'run terraform apply on project'
-task 'apply' do
+task 'apply' => :get do
     Terraform.apply()
 end
 
