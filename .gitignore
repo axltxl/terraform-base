@@ -2,3 +2,4 @@
 *.tfstate*
 config.rb
 !lib/config.rb
+.terraform
